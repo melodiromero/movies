@@ -1,4 +1,4 @@
-from fastapi import FastAPI  # importamos FastAPI necesario para la api
+from fastapi import FastAPI, HTTPException  # importamos FastAPI necesario para la api
 import function as f
 
 app = FastAPI()  # Creacion de la api
@@ -7,10 +7,16 @@ app = FastAPI()  # Creacion de la api
 def index():  # Funcion principal
     return {"message" :"Hola!"}
 
-@app.get("/leer_cantidad_filmaciones_mes/{mes}")
-def cantidad_filmaciones_mes(Mes:str): 
-    """ Se ingresa un mes en idioma Español. 
-    Debe devolver la cantidad de películas que fueron estrenadas en el mes consultado en la totalidad del dataset.
-    Ejemplo de retorno: X cantidad de películas fueron estrenadas en el mes de X
-    """ 
-    return {"message" :f.Leer_cantidad_filmaciones_mes(Mes)}
+@app.get("/cantidad_filmaciones_mes/{mes}")
+def cantidad_filmaciones_mes(mes:str): 
+    ''' Se ingresa un mes en idioma Español y la función retorna la cantidad de peliculas que se estrenaron ese mes historicamente. '''
+    cantidad = f.Leer_cantidad_filmaciones_mes(mes)
+    if  cantidad > 0:
+        return {'mes':{mes}, 'cantidad':cantidad} 
+    else:
+        raise HTTPException(status_code=404, detail="{mes} no es un mes válido. ")
+
+@app.get('/cantidad_filmaciones_dia{dia}')
+def cantidad_filmaciones_dia(dia:str):
+    ''' Se ingresa el dia en idioma Español y la función retorna la cantidad de peliculas que se estrebaron ese dia historicamente. '''
+    return {'dia':dia, 'cantidad':8}

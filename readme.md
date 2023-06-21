@@ -1,4 +1,4 @@
-# <h1 align=center> **PROYECTO PELICULAS ** </h1>
+# <h1 align=center> ** MOVIES ** </h1>
 
 # <h1 align=center>**`Machine Learning Operations (MLOps)`**</h1>
 
@@ -17,8 +17,10 @@ Espero sirva al lector y cualquier crítica pueden contactarme por email a: melo
 
 ## **Herramientas utilizadas**
 
-+ Microsoft Excel: para realizar la limpieza inicial de datos. 
-+ Python: para limpieza y trasnformación de datos.
++ Python: para limpieza y transformación de datos, se utilizan jupyter notebook y las librerias de pandas, datetime. 
++ Fastapi e uvicorn: para la realización de la api. 
++ Visual Studio Code: para el desarrollo del código del proyecto. 
+
 <br/>
 
 <hr>  
