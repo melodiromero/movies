@@ -41,7 +41,7 @@ def Leer_cantidad_filmaciones_mes(mes):
         La función retorna un numero: 0 en casos de error o el total (en numero) de peliculas estrenadas en el mes solicitado.
     """
    
-    # Se valida que el parámetro recibido sea una clave en el diccionario m.
+    # Se valida que el parámetro recibido sea una cadena y sea una clave en el diccionario m.
     if type(mes)==str and mes in m:
         return df[df['release_month'] ==  m[mes.lower()]].shape[0] 
     else: 
@@ -55,12 +55,31 @@ def Leer_cantidad_filmaciones_dia(dia):
         La función retorna un numero: 0 en casos de error o el total (en numero) de peliculas estrenadas en el dia solicitado.
     """
    
-    # Se valida que el parámetro recibido sea una clave en el diccionario m.
-    if type(mes)==str and mes in m:
-        return df[df['release_month'] ==  m[mes]].shape[0] 
+   
+    if type(dia)==str and dia in m:
+        return df[df['release_month'] ==  m[dia]].shape[0] 
     else: 
         return 0    
 
+def Leer_score_titulo(titulo):
+    """ Leer_score_titulo recibe el parámetro titulo tipo cadena o string, 
+        y recupera del dataframe, el título, el año de estreno y el score de la pelicula.
+    """
+    # Se valida que el parámetro titulo sea string y se encuentre en la columna title del el dataframe.
+    if type(titulo)==str and titulo in df['title']:
+        df1 = df[df['title'] == titulo]
+
+        resultado = {  "titulo":        df1['title'].to_string(index=False),
+                        "anio" :        df1['release_year'].to_string(index=False),
+                        "popularidad":  df1['popularity'].to_string(index=False)
+                    }
+
+        return resultado
+    else:
+        return 0
+
+
+# print(Leer_score_titulo("Toy Storgggy"))
 """ # pruebas...
 
 print('enero', Leer_cantidad_filmaciones_mes('enero'))
@@ -89,4 +108,5 @@ print('diciembre', Leer_cantidad_filmaciones_mes('diciembre'))
 
 print('diciembre', Leer_cantidad_filmaciones_mes('hhhhh'))
 
+print(Leer_score_titulo("Toy Story"))
 """
