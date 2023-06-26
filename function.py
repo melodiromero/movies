@@ -4,7 +4,7 @@ import datetime as dt
 
 # Se importa el dataset de trabajo
 df = pd.read_csv('./dataset/dataset_limpio.csv', delimiter=',')
-print(df.head(1000))
+
 # Declaración de estructuras de datos necesarios para los metodos.
 # Diccionario de meses en español y su nro correspondiete.
 m = {
@@ -69,24 +69,20 @@ def Leer_score_titulo(titulo: str):
         y recupera del dataframe, el título, el año de estreno y el score de la pelicula.
     """
     # Se valida que el parámetro titulo sea string y se encuentre en la columna title del el dataframe.
-    print(titulo)
+   
+    #filtro = df[df['title'].str.match("Sabrina"+ r'\b', case=False)]
+    resultado = []
+    df1 = df[df['title'].astype(str) == titulo]
+  
+    for i in range(len(df1)):
+        resultado.append({  "titulo":       df1.iloc[i]['title'],
+                            "anio" :        df1.iloc[i]['release_year'],
+                            "popularidad":  df1.iloc[i]['popularity']
+                        })
+    
+    return resultado
 
-    if "Sabrina" in df['title']:
-        print('pasa')
-        df1 = df[df['title'].astype(str) == "Sabrina"]
-
-        resultado = {  "titulo":        df1['title'].to_string(index=False),
-                        "anio" :        df1['release_year'].to_string(index=False),
-                        "popularidad":  df1['popularity'].to_string(index=False)
-                    }
-
-        return resultado
-    else:
-        print('noo pasa')
-        return 0
-
-
-print(Leer_score_titulo("Tom and Huck"))
+print(Leer_score_titulo("Sabrina"))
 """ # pruebas...
 
 print('enero', Leer_cantidad_filmaciones_mes('enero'))
