@@ -69,11 +69,10 @@ def Leer_score_titulo(titulo: str):
         y recupera del dataframe, el título, el año de estreno y el score de la pelicula.
     """
     # Se valida que el parámetro titulo sea string y se encuentre en la columna title del el dataframe.
-   
-    #filtro = df[df['title'].str.match("Sabrina"+ r'\b', case=False)]
+  
     resultado = []
     df1 = df[df['title'].astype(str) == titulo]
-  
+    # Se recorre en el caso que haya más de un registro.
     for i in range(len(df1)):
         resultado.append({  "titulo":       df1.iloc[i]['title'],
                             "anio" :        df1.iloc[i]['release_year'],
