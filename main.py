@@ -45,12 +45,22 @@ def cantidad_filmaciones_dia(dia:str):
 def score_titulo(titulo:str):
     '''Se ingresa el título de una filmación esperando como respuesta el título, el año de estreno y el score. '''
     datos = f.Leer_score_titulo(titulo)
+    return {"mensagge": datos}
 
+"""
     if datos == 0:
         return JSONResponse(
         status_code=404,
         content={"message": "No hay resultados con el título de la película ingresado. "},
         )
         #raise HTTPException(status_code=404, message="No hay resultados con el título de la película ingresado. ")
-    else:
-        return datos
+    else:"""
+    
+@app.get('/votos_titulo/{titulo}')
+def votos_titulo(titulo:str):
+    '''Se ingresa el título de una filmación esperando como respuesta el título, la cantidad de votos 
+    y el valor promedio de las votaciones. La misma variable deberá de contar con al menos 2000 valoraciones, 
+    caso contrario, debemos contar con un mensaje avisando que no cumple esta condición y que por ende, 
+    no se devuelve ningun valor.'''
+    datos = f.Leer_votos_titulo(titulo)
+    return datos

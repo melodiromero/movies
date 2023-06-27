@@ -81,7 +81,39 @@ def Leer_score_titulo(titulo: str):
     
     return resultado
 
+def Leer_votos_titulo(titulo: str):
+    """ Se ingresa el título de una filmación esperando como respuesta el título, 
+        la cantidad de votos y el valor promedio de las votaciones. 
+        La misma variable deberá de contar con al menos 2000 valoraciones, 
+        caso contrario, debemos contar con un mensaje avisando que no cumple esta condición
+        y que por ende, no se devuelve ningun valor.
+    """
+    resultado = dict()
+     
+    df_nocumple = df[(df.title.astype(str) == titulo) & ( df.vote_count < 2000)]
+    df_votos = df[(df.title.astype(str) == titulo) & ( df.vote_count >= 2000)]
+    
+    print(df_votos)
+
+    if len(df_nocumple) == 0:
+        return 1
+    
+    if len(df_votos) == 0:
+        return 0
+    else:
+        # Se recorre en el caso que haya más de un registro.
+        for i in range(len(df_votos)):
+            resultado.append({  "titulo":       df_votos.iloc[i]['title'],
+                                "anio" :        df_votos.iloc[i]['release_year'],
+                                "voto_total":   df_votos.iloc[i]['vote_average'],
+                                "voto_promedio":df_votos.iloc[i]['vote_count']
+                            })
+        
+        return resultado
+
 print(Leer_score_titulo("Sabrina"))
+
+print(Leer_votos_titulo("Toy Story"))
 """ # pruebas...
 
 print('enero', Leer_cantidad_filmaciones_mes('enero'))
