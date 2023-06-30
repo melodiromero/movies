@@ -6,6 +6,7 @@ contourpy
 debugpy
 decorator
 executing
+fastapi
 fonttools
 importlib-metadata
 importlib-resources
