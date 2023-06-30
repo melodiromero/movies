@@ -5,9 +5,7 @@ import json
 from typing import Dict
 
 # Se importa el dataset de trabajo
-df      = pd.read_csv('./dataset/movies_limpio.csv', delimiter=',')
-df_c    = pd.read_csv('./dataset/credits_limpio.csv', delimiter=',')
-df_f    = pd.read_csv('./dataset/dataset_final.csv', delimiter=',')
+df  = pd.read_csv('movies_limpio.csv', delimiter=',')
 # Declaración de estructuras de datos necesarios para los metodos.
 # Diccionario de meses en español y su nro correspondiete.
 m = {
@@ -122,7 +120,7 @@ def Leer_votos_titulo(titulo: str):
         
         return votos
     
-
+"""
 def Leer_get_actor(nombre_actor: str):
     ''' Se ingresa el nombre de un actor que se encuentre dentro del dataset debiendo devolver
         el éxito del mismo medido a través del retorno. Además, la cantidad de películas que en 
@@ -157,7 +155,7 @@ def Leer_get_actor(nombre_actor: str):
 #print(Leer_votos_titulo("Toy Story"))
 #print(Leer_score_titulo("Sabrina"))
 
-"""
+
 Leer_get_actor('Juliette Binoche')
  # pruebas...
 
