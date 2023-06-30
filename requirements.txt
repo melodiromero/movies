@@ -36,7 +36,3 @@ seaborn
 stack-data
 threadpoolctl
 tornado
-traitlets
-vboxapi
-wcwidth
-zipp
