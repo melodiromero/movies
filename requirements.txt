@@ -32,13 +32,9 @@ pure-eval
 Pygments
 pyparsing
 python-dateutil
-pytz
-pywin32
-pyzmq
 scikit-learn
 scipy
 seaborn
-six
 sklearn
 stack-data
 threadpoolctl
