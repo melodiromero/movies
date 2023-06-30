@@ -11,9 +11,6 @@ import function as f # importamos el archivo .py que contiene los metodos que co
 
 app = FastAPI()  # Creacion de la api
 
-if __name__ == '__main__':
-    uvicorn.run(app, port=8080, host='0.0.0.0')
-
 @app.get("/")
 def index():  # Funcion principal
     return {"message" :"Hola!"}
