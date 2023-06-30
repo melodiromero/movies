@@ -3,7 +3,6 @@ backcall
 colorama
 comm
 contourpy
-cycle
 debugpy
 decorator
 executing
