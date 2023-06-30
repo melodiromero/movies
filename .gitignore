@@ -1,2 +1,7 @@
 /prueba
-/dataset
+/dataset/dataset_final.csv
+/dataset/credits.csv
+/dataset/credits_limpio.csv
+/dataset/movies_dataset.csv
+/dataset/movies_limpio.csv
+/dataset/movies_dataset.xlsx

@@ -5,7 +5,7 @@ import json
 from typing import Dict
 
 # Se importa el dataset de trabajo
-df  = pd.read_csv('movies_limpio.csv', delimiter=',')
+df  = pd.read_csv('./dataset/dataset_reducido.csv', delimiter=',')
 # Declaración de estructuras de datos necesarios para los metodos.
 # Diccionario de meses en español y su nro correspondiete.
 m = {
