@@ -32,8 +32,6 @@ pure-eval
 Pygments
 pyparsing
 python-dateutil
-scikit-learn
-scipy
 seaborn
 sklearn
 stack-data
