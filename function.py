@@ -80,13 +80,17 @@ def Leer_score_titulo(titulo: str):
         y recupera del dataframe, el título, el año de estreno y el score de la pelicula.
     """
     # Se valida que el parámetro titulo sea string y se encuentre en la columna title del el dataframe.
-    midicc = dict()
-    midicc = df[df['title'].astype(str) == titulo]
-
-    result = pd.DataFrame(midicc, columns=['title', 'release_year', 'popularity'])
-
-    return result 
- 
+    subdicc = dict()
+    datos = df[['title', 'release_year', 'popularity']][df['title'] == titulo]
+    score = []
+    for i in range(len(datos)):
+        subdicc = {
+                    "titulo": datos.iloc[i]['title'],
+                    "anio": datos.iloc[i]['release_year'],
+                    "popularidad": datos.iloc[i]['popularity']
+                }
+        score.append(subdicc)                   
+    return score  
 
 def Leer_votos_titulo(titulo: str):
     """ Se ingresa el título de una filmación esperando como respuesta el título, 
@@ -95,8 +99,9 @@ def Leer_votos_titulo(titulo: str):
         caso contrario, debemos contar con un mensaje avisando que no cumple esta condición
         y que por ende, no se devuelve ningun valor.
     """
-
-    df_nocumple = df[(df.title.astype(str) == titulo) & ( df.vote_count < 2000)]
+    subdicc = dict()
+    votos = []
+    df_nocumple = df[(df.title.astype(str) == titulo) & (df.vote_count < 2000)]
     df_votos = df[(df.title.astype(str) == titulo) & ( df.vote_count >= 2000)]
     
     if len(df_nocumple) != 0:
@@ -106,17 +111,16 @@ def Leer_votos_titulo(titulo: str):
         return 0
     else:
         # Se recorre en el caso que haya más de un registro.
-        """for i in range(len(df_votos)):
-            resultado    = {  "titulo":       df_votos.iloc[i]['title'],
-                                 "anio" :        df_votos.iloc[i]['release_year'],
-                                 "voto_total":   df_votos.iloc[i]['vote_average'],
-                                 "voto_promedio":df_votos.iloc[i]['vote_count']
-                            }
-        print(type(resultado))"""
-        # Crear un DataFrame con los datos de votos
-        result = pd.DataFrame(df_votos, columns=['title', 'release_year', 'vote_average', 'vote_count'])
-
-        return result
+        for i in range(len(df_votos)):
+            subdicc     = { "titulo":          df_votos.iloc[i]['title'],
+                            "anio" :           df_votos.iloc[i]['release_year'],
+                            "voto_total":      df_votos.iloc[i]['vote_average'],
+                            "voto_promedio":   df_votos.iloc[i]['vote_count']
+                        }
+        
+            votos.append(subdicc)
+        
+        return votos
     
 
 def Leer_get_actor(nombre_actor: str):
@@ -148,12 +152,12 @@ def Leer_get_actor(nombre_actor: str):
                 
                         
                       
-    return 0  
+    return 0 
+
+#print(Leer_votos_titulo("Toy Story"))
+#print(Leer_score_titulo("Sabrina"))
+
 """
-print(Leer_score_titulo("Sabrina"))
-
-print(Leer_votos_titulo("Toy Story")[0])
-
 Leer_get_actor('Juliette Binoche')
  # pruebas...
 

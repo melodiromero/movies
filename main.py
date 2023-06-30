@@ -3,6 +3,7 @@ from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 
 from typing import Dict
+import numpy as np
 # importamos FastAPI necesario para la api
 
 import function as f # importamos el archivo .py que contiene los metodos que consultan el dataset.
@@ -49,17 +50,24 @@ def cantidad_filmaciones_dia(dia:str):
 def score_titulo(titulo:str):
     '''Se ingresa el título de una filmación esperando como respuesta el título, el año de estreno y el score. '''
     datos = f.Leer_score_titulo(titulo)
-    
-    if  datos.empty == True:
-        return JSONResponse(
-        status_code=404,
-        content={"message": "No hay resultados con el título de la película ingresado. "},
-        )
-        #raise HTTPException(status_code=404, message="No hay resultados con el título de la película ingresado. ")
+
+    if len(datos) == 0:
+            return JSONResponse(
+            status_code=404,
+            content={"message": "No existe una filmación con el titulo de película ingresado. "},
+            )
+            #raise HTTPException(status_code=404, message="No hay resultados con el título de la película ingresado. ")
     else:
-       
-        jsoned = datos
-        return {"message": jsoned}
+        # Convertir numpy.int64 a tipos de datos compatibles
+        for item in datos:
+            for key, value in item.items():
+                if isinstance(value, np.int64):
+                    item[key] = value.item()
+
+        return JSONResponse(
+                    status_code=200,
+                    content={"score": datos},
+                    )
     """
         # Convertir el diccionario a JSON serializable
         json_resultado = jsonable_encoder(datos)
@@ -79,18 +87,7 @@ def votos_titulo(titulo:str):
         no se devuelve ningun valor. '''
     datos = ''
     datos = f.Leer_votos_titulo(titulo)
-    
-    #print(datos)
-    # Convertir el diccionario a JSON serializable
-    json_resultado = jsonable_encoder(datos)
 
-    # Crear una instancia de Response con el contenido JSON
-    response = Response(content=json_resultado, media_type="application/json")
-
-    # Devolver la instancia de Response
-    return response
-
-    """
     if datos == 1:
             return JSONResponse(
             status_code=202,
@@ -106,16 +103,18 @@ def votos_titulo(titulo:str):
             #raise HTTPException(status_code=404, message="No hay resultados con el título de la película ingresado. ")
             else:          
                
-                # Convertir el diccionario a JSON serializable
-                json_resultado = jsonable_encoder(datos)
+                 # Convertir numpy.int64 a tipos de datos compatibles
+                for item in datos:
+                    for key, value in item.items():
+                        if isinstance(value, np.int64):
+                            item[key] = value.item()
 
-                # Crear una instancia de Response con el contenido JSON
-                response = Response(content=json_resultado, media_type="application/json")
-
-                # Devolver la instancia de Response
-                return response
+                return JSONResponse(
+                status_code=200,
+                content={"votos": datos},
+                )
+             
                 
-"""
 """
 
 @app.get('/get_actor/{nombre_actor}')
