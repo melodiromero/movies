@@ -58,8 +58,8 @@ def score_titulo(titulo:str):
         #raise HTTPException(status_code=404, message="No hay resultados con el título de la película ingresado. ")
     else:
        
-        jsoned = datos.json()
-        return jsonable_encoder(jsoned)
+        jsoned = datos.to_json()
+        return {"message": jsoned}
     """
         # Convertir el diccionario a JSON serializable
         json_resultado = jsonable_encoder(datos)
@@ -80,7 +80,7 @@ def votos_titulo(titulo:str):
     datos = ''
     datos = f.Leer_votos_titulo(titulo)
     
-    print(datos)
+    #print(datos)
     # Convertir el diccionario a JSON serializable
     json_resultado = jsonable_encoder(datos)
 
@@ -116,6 +116,7 @@ def votos_titulo(titulo:str):
                 return response
                 
 """
+"""
 
 @app.get('/get_actor/{nombre_actor}')
 def get_actor(nombre_actor:str):
@@ -124,7 +125,7 @@ def get_actor(nombre_actor:str):
         las que ha participado y el promedio de retorno. '''
     
     return {'actor':nombre_actor, 'cantidad_filmaciones':respuesta, 'retorno_total':respuesta, 'retorno_promedio':respuesta}
-"""
+
 @app.get('/get_director/{nombre_director}')
 def get_director(nombre_director:str):
     ''' Se ingresa el nombre de un director que se encuentre dentro de un dataset debiendo devolver el éxito del mismo medido a través del retorno. 

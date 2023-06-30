@@ -149,8 +149,9 @@ def Leer_get_actor(nombre_actor: str):
                         
                       
     return 0  
-print(Leer_score_titulo("Sabrina"))
 """
+print(Leer_score_titulo("Sabrina"))
+
 print(Leer_votos_titulo("Toy Story")[0])
 
 Leer_get_actor('Juliette Binoche')
