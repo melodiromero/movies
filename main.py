@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Request, Response, HTTPException
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
+import uvicorn
 
 from typing import Dict
 import numpy as np
@@ -9,6 +10,9 @@ import numpy as np
 import function as f # importamos el archivo .py que contiene los metodos que consultan el dataset.
 
 app = FastAPI()  # Creacion de la api
+
+if __name__ == '__main__':
+    uvicorn.run(app, port=8080, host='0.0.0.0')
 
 @app.get("/")
 def index():  # Funcion principal
