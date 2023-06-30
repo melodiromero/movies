@@ -58,7 +58,7 @@ def score_titulo(titulo:str):
         #raise HTTPException(status_code=404, message="No hay resultados con el título de la película ingresado. ")
     else:
        
-        jsoned = datos.to_json()
+        jsoned = datos
         return {"message": jsoned}
     """
         # Convertir el diccionario a JSON serializable
