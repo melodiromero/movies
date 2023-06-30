@@ -17,13 +17,15 @@ Espero sirva al lector y cualquier crítica pueden contactarme por email a: melo
 ### Fuente de datos
 ***
 + [Dataset](/dataset): 2 archivos con datos que requieren ser procesados (movies_dataset.csv y credits.csv). 
-+ [Diccionario de datos](agregar): Diccionario con algunas descripciones de las columnas disponibles en el dataset.
++ [Diccionario de datos](https://docs.google.com/spreadsheets/d/1QkHH5er-74Bpk122tJxy_0D49pJMIwKLurByOfmxzho/edit#gid=0): Diccionario con algunas descripciones de las columnas disponibles en el dataset.
 
 ## Technologías utilizadas
 ***
 + Python: para limpieza y transformación de datos, se utilizan jupyter notebook y las librerias de pandas, datetime. 
 + Fastapi e uvicorn: para la realización de la api. 
 + Visual Studio Code: para el desarrollo del código del proyecto. 
++ GitHub : como repositorio del proyecto
++ Render : para desployar la api.
 
 
 ## ETL: limpieza, transformación y carga de datos
