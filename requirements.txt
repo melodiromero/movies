@@ -36,3 +36,4 @@ seaborn
 stack-data
 threadpoolctl
 tornado
+uvicorn
