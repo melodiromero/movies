@@ -75,3 +75,6 @@ Las consultas de las api son las siguientes
 ## 5. Deploy de la api
 La api se encuentra disponible en la siguiente dirección:
 https://sistema-recomendacion-peliculas-2aos.onrender.com
+
+Y su documentación con la posibilidad de interactual con los endpoints
+https://sistema-recomendacion-peliculas-2aos.onrender.com/docs
