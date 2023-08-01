@@ -6,9 +6,15 @@ df  = pd.read_csv('./dataset/movies_limpio.csv', delimiter=',')
 
 idiomas = df['original_language'].unique().tolist()
 # De los idiomas, se elimina los ivalidos 
-idiomas.remove('104.0')
-idiomas.remove('82.0')
-idiomas.remove('68.0')
+if '104.0' in idiomas:
+    idiomas.remove('104.0')
+    
+if '82.0' in idiomas:
+    idiomas.remove('104.0')
+
+if '68.0' in idiomas:
+    idiomas.remove('104.0')
+
 #print(idiomas)
 
 def validadIdioma(idioma):
