@@ -56,4 +56,32 @@ def leer_franquicia(franquicia):
                 }
     return datos
 
+def leer_peliculas_pais(pais):
+    # Se ingresa el pais y retorna la cantidad de peliculas producidas en el mismo. '''
+    cantidad = df['paises'].str.contains(pais, case=False).sum()
+    datos           = dict()
+    
+    if cantidad > 0:
+        datos       = {
+                    "pais"    : pais,
+                    "cantidad": cantidad
+        }
+        
+    return datos
+
+def leer_productora(productora):
+    # Ingresas la productora, entregandote el revenue_total total y la cantidad de peliculas que realizo. '''
+    registros       = df[df['productoras'].str.contains(productora, case=False)]
+    datos           = dict()
+    cantidad        = len(registros)
+    ganancia_total   = registros.sum()
+   
+    if cantidad > 0:
+        datos   = {
+                        "productora"        : productora,
+                        "cantidad"          : cantidad,
+                        "revenue_total"     : ganancia_total
+                }
+    return datos
+ 
 # print(leer_franquicia('Bad Boys Collection'))

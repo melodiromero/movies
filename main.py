@@ -57,3 +57,26 @@ def franquicia(franquicia:str):
             content={"message": "No se hallaron datos con la franquicia ingresada. "},
             )
    
+@app.get('/peliculas_pais/{pais}')
+def peliculas_pais(pais:str):
+    '''Ingresas el pais y retorna la cantidad de peliculas producidas en el mismo. '''
+    datos = f.leer_peliculas_pais(pais)
+    if bool(datos):
+        return datos
+    else:
+        return JSONResponse(
+            status_code=404,
+            content={"message": "No se hallaron datos con el pais ingresado. "},
+        )
+        
+@app.get('/productoras_exitosas/{productora}')
+def productoras_exitosas(productora:str):
+    '''Ingresas la productora, entregandote el revunue total y la cantidad de peliculas que realizo '''
+    datos = f.leer_productora(productora)
+    if bool(datos):
+        return datos
+    else:
+        return JSONResponse(
+            status_code=404,
+            content={"message": "No se hallaron datos con la productora ingresada. "},
+        )
