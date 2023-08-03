@@ -77,17 +77,20 @@ def leer_peliculas_pais(pais):
 
 def leer_productora(productora):
     # Ingresas la productora, entregandote el revenue_total total y la cantidad de peliculas que realizo. '''
-    registros       = df[df['productoras'].str.contains(productora, case=False)]
-    datos           = dict()
-    cantidad        = len(registros)
-    ganancia_total   = registros.sum()
+    # primero, se eliminan los nulos
+    resultados = df.dropna(subset=['productoras'])
+    # se filtra los registros que tienen coincidencia en la columna de prooductoras
+    resultados = resultados.loc[resultados['productoras'].str.contains(productora, case=False)]
    
+    # se calcula la cantidad y la suma de ganancia  
+    cantidad        = len(resultados)
+    revenue_total   = resultados['revenue'].sum() 
+    datos           = dict()
     if cantidad > 0:
         datos   = {
                         "productora"        : productora,
                         "cantidad"          : cantidad,
-                        "revenue_total"     : ganancia_total
+                        "revenue_total"     : revenue_total
                 }
     return datos
  
-# print(leer_franquicia('Bad Boys Collection'))
