@@ -80,3 +80,11 @@ def productoras_exitosas(productora:str):
             status_code=404,
             content={"message": "No se hallaron datos con la productora ingresada. "},
         )
+
+@app.get('/get_director/{nombre_director}')
+def get_director(nombre_director:str):
+    ''' Se ingresa el nombre de un director que se encuentre dentro de un dataset debiendo devolver el éxito del mismo medido a través del retorno. 
+    Además, deberá devolver el nombre de cada película con la fecha de lanzamiento, retorno individual, costo y ganancia de la misma. En formato lista'''
+    return {'director':nombre_director, 'retorno_total_director':'', 
+    'peliculas':'', 'anio':'','retorno_pelicula':'', 
+    'budget_pelicula':'', 'revenue_pelicula':''}
