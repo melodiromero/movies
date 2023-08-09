@@ -2,9 +2,9 @@
 
 # <h1 align=center>**`Machine Learning Operations (MLOps)`**</h1>
 
-Este es un proyecto de ingenieria de datos y de manchine learning. Como dataset se tiene una fuente de datos de peliculas a la cual se le aplica un proceso de ETL seguido del desarrollo de una API que permite realizar consultas a la misma, para finalizar con un modelo de recomendación de peliculas.
+Este es un proyecto de ingeniería de datos y de manchine learning. Como dataset se tiene una fuente de datos de peliculas a la cual se le aplica un proceso de ETL (Extracción, Transformación y Carga) seguido de un EDA (Análisis Exploratorio de Datos) y a posteriori, el desarrollo de una API (Interfaz de Programación de Aplicaciones) que permite realizar consultas a la misma, para finalizar con un modelo de recomendación de peliculas que forma parte de uno de los endpoints de la API.
 
-Espero sirva al lector y cualquier crítica pueden contactarme por email a: melodimarisel@gmail.com
+Espero sirva al lector y cualquier sugerencia o crítica pueden contactarme por email a: melodimarisel@gmail.com
 
 <hr>  
 
@@ -12,8 +12,10 @@ Espero sirva al lector y cualquier crítica pueden contactarme por email a: melo
 1. [Fuente de datos](#fuente-datos)
 2. [Tecnologías utilizadas](#tecnologias)
 3. [ETL: limpieza, transformación y carga de datos ](#etl)
-4. [Endpoint de la api ](#etl)
-5. [Deploy de la api ](#etl)
+4. [EDA: análisis exploratorio de datos ](#eda)
+5. [Sistemas de recomendación ](#ml)
+6. [Endpoint de la api ](#api)
+7. [Deploy de la api ](#conclusion)
 
 ## 1. Fuente de datos
 ***
@@ -31,7 +33,7 @@ Espero sirva al lector y cualquier crítica pueden contactarme por email a: melo
 
 ## 3. ETL: limpieza, transformación y carga de datos
 ***
-Se realizó lo siguiente
+Se realizó un análisis de la fuente de datos y preparación de los datos para su posterior análisis y visualización, para lo cual se realizaron las siguientes transformaciones:
 
 + Eliminación de campos no necesarios: se eliminaron los campos que no se utilizarán en la api **video**,**imdb_id**, **adult** ,**original_title**, **poster_path** y **homepage**. 
 
@@ -47,7 +49,20 @@ Se realizó lo siguiente
 
 <br/>
 
-## 4. Endpoint de la api
+
+## 4. EDA: análisis exploratorio de datos
+***
+Se exploran los datos para comprender su estructura, patrones, relaciones y características. 
+En este proceso se obtienen los registros atípicos (outliers), se buscan patrones y relaciones en el dataset objeto de estudio.
+
++ En la visualización de la estadistica descriptiva de los datos, se observan que las peliculas registras datan de los años 1874 al 2020. Entre ellas hay filmaciones con presupuesto y ganancia en cero. También se observa que hay peliculas que no tienen valoración registrada (sus registros están en cero), en cuanto a puntuación por polularidad TMDB (TheMoviesDataBase), reseña y votación.
+
++ Para la detección de valores atípicos se utilizó el método de de Tukey's fences.
+
+
+## 5. Sistema de recomendación
+
+## 6. Endpoint de la api
 ***
 Las consultas de las api son las siguientes
   
@@ -72,7 +87,7 @@ Las consultas de las api son las siguientes
 
 <br/>
 
-## 5. Deploy de la api
+## 7. Deploy de la api
 La api se encuentra disponible en la siguiente dirección:
 https://sistema-recomendacion-peliculas-2aos.onrender.com
 
