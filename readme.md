@@ -24,7 +24,7 @@ Espero sirva al lector y cualquier sugerencia o crítica pueden contactarme por 
 
 ## 2. Technologías utilizadas
 ***
-+ Python: para limpieza y transformación de datos, se utilizan jupyter notebook y las librerias de pandas, numpy, json. 
++ Python: para limpieza y transformación de datos, se utilizan jupyter notebook y las librerias de pandas, numpy, matplotlib, seaborn, wordcloud, sklearn, fastapi y uvicorn
 + Fastapi e uvicorn: para la realización de la api. 
 + Visual Studio Code: para el desarrollo del código del proyecto. 
 + GitHub : como repositorio del proyecto
@@ -59,8 +59,16 @@ En este proceso se obtienen los registros atípicos (outliers), se buscan patron
 
 + Para la detección de valores atípicos se utilizó el método de de Tukey's fences.
 
++ Entre los campos "budget" y "revenue" se aprecia una correlación positiva fuerte entre estas dos variables. Se puede afirmar que cuando el presupuesto (budget) de una película aumenta, también aumenta los ingresos (revenue) generados por esa película.
+
++ Las cinco palabras más frecuentes analizando el titulo de las filmaciones son: Love, Man, Girl, Nigth y Day. Cuando se analiza el resumen de la pelicula las más frecuente son: Life, Find, Love, One y(live, film y family parecieran estan en el 5to orden al mismo nivel).
 
 ## 5. Sistema de recomendación
+
+
+
+
+
 
 ## 6. Endpoint de la api
 ***
