@@ -49,7 +49,6 @@ Se realizó un análisis de la fuente de datos y preparación de los datos para 
 
 <br/>
 
-
 ## 4. EDA: análisis exploratorio de datos
 ***
 Se exploran los datos para comprender su estructura, patrones, relaciones y características. 
@@ -64,8 +63,6 @@ En este proceso se obtienen los registros atípicos (outliers), se buscan patron
 + Las cinco palabras más frecuentes analizando el titulo de las filmaciones son: Love, Man, Girl, Nigth y Day. Cuando se analiza el resumen de la pelicula las más frecuente son: Life, Find, Love, One y(live, film y family parecieran estan en el 5to orden al mismo nivel).
 
 ## 5. Sistema de recomendación
-
-
 
 
 

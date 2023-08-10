@@ -2,11 +2,10 @@ from fastapi import FastAPI, Request, Response, HTTPException
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 import uvicorn
-import pandas as pd
-import numpy as np
-# importamos FastAPI necesario para la api
+# se importa FastAPI necesario para la api
 
-import function as f # importamos el archivo .py que contiene los metodos que consultan el dataset.
+import function as f    # se importa el archivo fucntion.py que contiene los metodos que consultan el dataset.
+import ml as m          # se importa el archivo ml.py que contiene el modelo de recomendacion de peliculas.
 
 app = FastAPI()  # Creacion de la api
 
@@ -88,3 +87,17 @@ def get_director(nombre_director:str):
     return {'director':nombre_director, 'retorno_total_director':'', 
     'peliculas':'', 'anio':'','retorno_pelicula':'', 
     'budget_pelicula':'', 'revenue_pelicula':''}
+    
+# ML
+@app.get('/recomendacion/{titulo}')
+def recomendacion(titulo:str):
+    '''Ingresas un nombre de pelicula y te recomienda las similares en una lista'''
+
+    lista = m.obtenerListaPeliculas(titulo)
+    if bool(lista):
+        return {'lista recomendada' : lista}
+    else:
+        return JSONResponse(
+            status_code=404,
+            content={"message": "No se hallaron resultados con el titulo ingresado. "},
+        )

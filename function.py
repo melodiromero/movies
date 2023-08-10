@@ -33,8 +33,8 @@ def leer_peliculas_duracion(pelicula):
     # Se retorna la duracion y e año de la pelicula.
     subdicc = dict()
     midicc = []
-    datos = df[['runtime', 'release_year']][df['title'] == pelicula]
-    
+    datos = df[['runtime', 'release_year']][df['title'].str.lower() == pelicula.lower()]
+
     for i in range(len(datos)):
         subdicc = {
                     "pelicula"  : pelicula,
