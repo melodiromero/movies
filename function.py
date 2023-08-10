@@ -10,10 +10,10 @@ if '104.0' in idiomas:
     idiomas.remove('104.0')
     
 if '82.0' in idiomas:
-    idiomas.remove('104.0')
+    idiomas.remove('82.0')
 
 if '68.0' in idiomas:
-    idiomas.remove('104.0')
+    idiomas.remove('68.0')
 
 #print(idiomas)
 
