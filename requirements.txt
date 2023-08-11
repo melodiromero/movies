@@ -1,8 +1,11 @@
 numpy
 pandas
+ast
+random
 matplotlib
 seaborn
 wordcloud
 scikit-learn
 fastapi
 uvicorn
+memory_profiler
