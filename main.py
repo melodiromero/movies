@@ -5,7 +5,7 @@ import uvicorn
 # se importa FastAPI necesario para la api
 
 import function as f    # se importa el archivo fucntion.py que contiene los metodos que consultan el dataset.
-import ml2 as m          # se importa el archivo ml.py que contiene el modelo de recomendacion de peliculas.
+import ml as m          # se importa el archivo ml.py que contiene el modelo de recomendacion de peliculas.
 
 app = FastAPI()  # Creacion de la api
 
