@@ -94,6 +94,9 @@ Las consultas de las api son las siguientes
 + def **get_director( *`Director: str`* )**:
     Se ingresa el nombre de un director que se encuentre dentro de un dataset debiendo devolver el éxito del mismo medido a través del retorno. 
     Además, retorna el nombre de cada película con la fecha de lanzamiento, retorno individual, costo y ganancia de la misma, en formato lista.
+    
++ def **recomendacion( *`Titulo: str`* )**:
+    Se ingresa un nombre de pelicula y te recomienda las similares en una lista de 5 peliculas. 
 
 <br/>
 

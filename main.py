@@ -5,7 +5,7 @@ import uvicorn
 # se importa FastAPI necesario para la api
 
 import function as f    # se importa el archivo fucntion.py que contiene los metodos que consultan el dataset.
-#import ml as m          # se importa el archivo ml.py que contiene el modelo de recomendacion de peliculas.
+import ml as m          # se importa el archivo ml.py que contiene el modelo de recomendacion de peliculas.
 
 app = FastAPI()  # Creacion de la api
 
@@ -92,7 +92,7 @@ def get_director(nombre_director:str):
 @app.get('/recomendacion/{titulo}')
 def recomendacion(titulo:str):
     '''Ingresas un nombre de pelicula y te recomienda las similares en una lista'''
-    '''
+    
     lista = m.obtenerListaPeliculas(titulo)
     if bool(lista):
         return {'lista' : lista}
@@ -101,6 +101,3 @@ def recomendacion(titulo:str):
             status_code=404,
             content={"message": "No se hallaron resultados con el titulo ingresado. "},
         )
-
-        '''
-    return ''
