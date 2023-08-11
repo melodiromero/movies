@@ -70,6 +70,7 @@ TF-IDF cuenta la cantidad de veces que aparece una frase determinada dentro de u
 
 La similitud del coseno mide la similitud entre dos vectores. Dado que TF-IDF devuelve vectores que muestran la puntuación que obtiene un documento en comparación con el corpus, podemos usar la similitud del coseno para identificar las coincidencias más cercanas después de haber usado TF-IDF para generar los vectores y nos ayuda a ordenar la lista de peliculas recomendadas analizando el titulo de las peliculas del dataset analizado. 
 
+Para la prueba en render se redujo el dataset a solo las columnas id y title con un total de 5mil registros.-
 
 ## 6. Endpoint de la api
 ***

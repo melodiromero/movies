@@ -7,9 +7,6 @@ from sklearn.metrics.pairwise import linear_kernel
 from memory_profiler import profile
 
 df  = pd.read_csv('./dataset/movies_reducido.csv', delimiter=',')
-# se selecciona las columnas de interés
-columnas_seleccionadas = ['overview', 'popularity', 'tagline', 'title']  # Reemplaza con los nombres de las columnas que deseas seleccionar
-df = df[columnas_seleccionadas]
 
 # Se eliminan los registros duplicados
 indices = pd.Series(df.index, index=df['title']).drop_duplicates()
