@@ -47,7 +47,7 @@ def leer_peliculas_duracion(pelicula):
 
 def leer_franquicia(franquicia):
     # Se ingresa la franquicia y retorna la cantidad de peliculas, ganancia total y promedio. '''
-    resultados      = df[df['franquicia'] == franquicia]
+    resultados      = df[df['franquicia'].str.lower() == franquicia.lower()]
     datos           = dict()
     cantidad        = len(resultados)
    

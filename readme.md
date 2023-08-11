@@ -63,8 +63,12 @@ En este proceso se obtienen los registros atípicos (outliers), se buscan patron
 + Las cinco palabras más frecuentes analizando el titulo de las filmaciones son: Love, Man, Girl, Nigth y Day. Cuando se analiza el resumen de la pelicula las más frecuente son: Life, Find, Love, One y(live, film y family parecieran estan en el 5to orden al mismo nivel).
 
 ## 5. Sistema de recomendación
+ 
+El modelo de recomendación utiliza el Procesamiento del Lenguaje Natural (NLP): especificamnete la  Frecuencia de Documento Inverso de Frecuencia de Término o TF-IDF y similitud de coseno.
 
+TF-IDF cuenta la cantidad de veces que aparece una frase determinada dentro de un documento y la compara con otros documentos.
 
+La similitud del coseno mide la similitud entre dos vectores. Dado que TF-IDF devuelve vectores que muestran la puntuación que obtiene un documento en comparación con el corpus, podemos usar la similitud del coseno para identificar las coincidencias más cercanas después de haber usado TF-IDF para generar los vectores y nos ayuda a ordenar la lista de peliculas recomendadas analizando el titulo de las peliculas del dataset analizado. 
 
 
 ## 6. Endpoint de la api
