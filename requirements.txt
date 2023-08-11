@@ -1,6 +1,5 @@
 numpy
 pandas
-random
 matplotlib
 seaborn
 wordcloud
