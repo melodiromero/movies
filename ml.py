@@ -4,6 +4,7 @@ import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.metrics.pairwise import linear_kernel
+from memory_profiler import profile
 
 df  = pd.read_csv('./dataset/movies_reducido.csv', delimiter=',')
 # se selecciona las columnas de interés
@@ -71,7 +72,7 @@ def get_recommendations(df, column, value, cosine_similarities, limit=5):
 
     return df
 
-
+@profile
 def obtenerListaPeliculas(pelicula):
     lista = get_recommendations(df, 
                                       'title', 
