@@ -92,7 +92,7 @@ def get_director(nombre_director:str):
 @app.get('/recomendacion/{titulo}')
 def recomendacion(titulo:str):
     '''Ingresas un nombre de pelicula y te recomienda las similares en una lista'''
-
+    '''
     lista = m.obtenerListaPeliculas(titulo)
     if bool(lista):
         return {'lista' : lista}
@@ -101,3 +101,6 @@ def recomendacion(titulo:str):
             status_code=404,
             content={"message": "No se hallaron resultados con el titulo ingresado. "},
         )
+
+        '''
+    return ''

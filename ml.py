@@ -20,7 +20,7 @@ tfidf_matrix = tfidf.fit_transform(titulo)
 
 cosine_similarities = linear_kernel(tfidf_matrix, tfidf_matrix) # se calcula la matriz de coseno para los vectores.
 
-
+@profile
 def get_recommendations(df, column, value, cosine_similarities, limit=5):
     """ Retorna un dataframe de 5 registros recomendados según la 
         Frecuencia de término Frecuencia de documento inversa (TF-IDF) 
@@ -68,7 +68,7 @@ def get_recommendations(df, column, value, cosine_similarities, limit=5):
 
     return df
 
-@profile
+
 def obtenerListaPeliculas(pelicula):
     lista = get_recommendations(df, 
                                       'title', 
@@ -85,3 +85,4 @@ def obtenerListaPeliculas(pelicula):
     
     return datos
     
+print(obtenerListaPeliculas('Toy Story'))
